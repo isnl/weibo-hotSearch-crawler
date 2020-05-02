@@ -1,0 +1,25 @@
+{
+  "name": "weibo-hotsearch-crawler",
+  "version": "1.0.0",
+  "description": "一个实时爬取微博热搜的 nodejs 程序",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "微博热搜爬虫",
+    "微博热搜nodejs爬虫",
+    "微博爬虫",
+    "热搜爬虫",
+    "爬取微博热搜",
+    "新浪微博热搜",
+    "weibo"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "node-schedule": "^1.3.2",
+    "superagent": "^5.2.2"
+  }
+}
