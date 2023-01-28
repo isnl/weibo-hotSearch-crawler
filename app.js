@@ -2,8 +2,8 @@
  * @Author: Peanut
  * @Description:  nodejs定时爬取微博实时热搜
  * @Date: 2020-05-01 21:51:33
- * @Last Modified by: Peanut
- * @Last Modified time: 2020-05-02 15:18:16
+ * @Last Modified by: Peanut.ZhangHuan
+ * @Last Modified time: 2023-01-28 10:23:02
  * 程序员导航站：https://iiter.cn
  */
 const cheerio = require("cheerio");
@@ -12,13 +12,13 @@ const fs = require("fs");
 const nodeSchedule = require("node-schedule");
 const weiboURL = "https://s.weibo.com";
 const hotSearchURL = weiboURL + "/top/summary?cate=realtimehot";
-
+const hotSearchCookies = `_s_tentry=passport.weibo.com; Apache=4950475133032.61.1638282900861; SUBP=0033WrSXqPxfM72-Ws9jqgMF55529P9D9WWoggCvDOxY-vXVGiYzJfVc; ULV=1638283021540:1:1:1:4950475133032.61.1638282900861:; SINAGLOBAL=4950475133032.61.1638282900861; SUB=_2AkMW-rguf8NxqwJRmfoWy2_lb4V0yQvEieKgpkn1JRMxHRl-yj9jqkEstRB6PXqWwYYhR1PFXzQX0RwK4Xny_dUzd9p3`;
 /**
  * 获取热搜列表数据方法
  */
 function getHotSearchList() {
   return new Promise((resolve, reject) => {
-    superagent.get(hotSearchURL, (err, res) => {
+    superagent.get(hotSearchURL).set("cookie", hotSearchCookies).end((err, res) => {
       if (err) reject("request error");
       const $ = cheerio.load(res.text);
       let hotList = [];
